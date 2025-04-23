@@ -1,0 +1,49 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Veiculo {
+  id            Int       @id @default(autoincrement())
+  nome          String
+  placa         String
+  ano_fab       Int
+  ano_model     Int
+  cor           String
+  combustivel   String
+  quilometragem String
+  utilidade     String
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+
+  // Relação com revisões
+  revisoes Revisao[]
+}
+
+model Revisao {
+  id          Int      @id @default(autoincrement())
+  veiculo_id  Int
+  km_prox_rev String
+  rev_feita   String
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Chave estrangeira para Veiculo
+  veiculo Veiculo @relation(fields: [veiculo_id], references: [id])
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  name     String
+  login    String @unique
+  password String
+  role     String
+
+}

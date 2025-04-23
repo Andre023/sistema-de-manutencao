@@ -1,0 +1,65 @@
+###
+GET http://192.168.11.234:3013/veiculo
+Content-Type: application/json
+
+###
+POST http://192.168.11.234:3013/veiculo
+Content-Type: application/json
+
+{
+    "nome": "carro",
+    "placa": "ABC1234",
+    "ano_fab": 1970,
+    "ano_model": 1970,
+    "cor": "azul",
+    "combustivel": "gasosa",
+    "quilometragem": "100",
+    "utilidade": "particular"
+}
+
+###
+PUT http://192.168.11.234:3013/veiculo/1
+Content-Type: application/json
+
+{
+    "nome": "carro",
+    "placa": "ABC1234",
+    "ano_fab": 1970,
+    "ano_model": 1970,
+    "cor": "azula",
+    "combustivel": "gasosa",
+    "quilometragem": "100",
+    "utilidade": "particular"
+}
+
+###
+DELETE http://192.168.11.234:3013/veiculo/1
+Content-Type: application/json
+
+###
+GET http://192.168.11.234:3013/revisao
+Content-Type: application/json
+
+###
+POST http://192.168.11.234:3013/revisao
+Content-Type: application/json
+
+{
+    "veiculo_id": 2,
+    "km_prox_rev": "das",
+    "rev_feita": "e"
+}
+
+###
+PUT http://192.168.11.234:3013/revisao/1
+Content-Type: application/json
+
+{
+    "veiculo_id": 2,
+    "km_prox_rev": "das",
+    "rev_feita": "eSAS"
+}
+
+###
+DELETE http://192.168.11.234:3013/revisao/1
+Content-Type: application/json
